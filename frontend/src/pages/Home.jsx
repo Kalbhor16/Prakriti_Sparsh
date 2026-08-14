@@ -2,9 +2,6 @@ import React, { useEffect, useState } from "react";
 import Background from "../component/Background";
 import Hero from "../component/Hero";
 import Product from "./Product";
-import { userDataContext } from "../context/UserContext";
-import { authDataContext } from "../context/AuthContext";
-import { shopDataContext } from "../context/ShopContext";
 import OurPolicy from "../component/OurPolicy";
 import Footer from "../component/Footer";
 
