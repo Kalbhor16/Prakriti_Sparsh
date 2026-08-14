@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import logo from '../assets/logo.png'
 import { LuUser } from "react-icons/lu";
 import { FaOpencart } from "react-icons/fa6";
-import { userDataContext } from '../context/userContext';
+import { userDataContext } from '../context/UserContext';
 import { BiSearchAlt } from "react-icons/bi";
 import { Navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios';
