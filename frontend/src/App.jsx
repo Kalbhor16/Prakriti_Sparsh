@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
-import Registration from './pages/registration'
+import Registration from './pages/Registration'
 import Login from './pages/Login'
 import Home from './pages/Home'
 import Ai from './component/Ai'
