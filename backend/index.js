@@ -15,7 +15,7 @@ app.use(express.json())
 app.use(cookieParser())
 
 app.use(cors({
-origin:["http://localhost:5173","http://localhost:5174"],
+origin:["https://prakriti-sparsh-frontendone-ke02.onrender.com","https://prakriti-sparsh-admin.onrender.com"],
 credentials:true 
 }))
 app.use("/api/auth",authRoutes)
