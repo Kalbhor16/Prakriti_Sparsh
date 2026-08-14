@@ -10,7 +10,7 @@ import { authDataContext } from '../context/AuthContext';
 import axios from 'axios';
 import { signInWithPopup } from 'firebase/auth';
 import { auth, provider } from '../../utils/Firebase';
-import { userDataContext } from '../context/userContext';
+import { userDataContext } from '../context/UserContext';
 function Login() {
   let [show, setShow] = useState(false)
   let { serverUrl } = useContext(authDataContext)
