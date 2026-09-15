@@ -58,7 +58,7 @@ function Nav() {
           />
 
           <h1 className="text-[22px] lg:text-[27px] font-serif font-semibold text-gray-800">
-            Prakriti<span className="text-[#F83EAD]">Sparsh</span>
+            Prakruti<span className="text-[#1F4D3A]">Sparsha</span>
           </h1>
         </div>
 
@@ -68,7 +68,7 @@ function Nav() {
             <li
               onClick={() => navigate("/")}
               className="px-4 lg:px-5 py-2 rounded-full text-sm font-medium cursor-pointer
-              text-gray-700 hover:text-white hover:bg-[#F83EAD]
+              text-gray-700 hover:text-white hover:bg-[#1F4D3A]
               transition-all duration-300"
             >
               HOME
@@ -77,7 +77,7 @@ function Nav() {
             <li
               onClick={() => navigate("/collection")}
               className="px-4 lg:px-5 py-2 rounded-full text-sm font-medium cursor-pointer
-              text-gray-700 hover:text-white hover:bg-[#F83EAD]
+              text-gray-700 hover:text-white hover:bg-[#1F4D3A]
               transition-all duration-300"
             >
               COLLECTIONS
@@ -86,7 +86,7 @@ function Nav() {
             <li
               onClick={() => navigate("/about")}
               className="px-4 lg:px-5 py-2 rounded-full text-sm font-medium cursor-pointer
-              text-gray-700 hover:text-white hover:bg-[#F83EAD]
+              text-gray-700 hover:text-white hover:bg-[#1F4D3A]
               transition-all duration-300"
             >
               ABOUT
@@ -95,7 +95,7 @@ function Nav() {
             <li
               onClick={() => navigate("/contact")}
               className="px-4 lg:px-5 py-2 rounded-full text-sm font-medium cursor-pointer
-              text-gray-700 hover:text-white hover:bg-[#F83EAD]
+              text-gray-700 hover:text-white hover:bg-[#1F4D3A]
               transition-all duration-300"
             >
               CONTACT
@@ -155,7 +155,7 @@ function Nav() {
             <div
               className="
                 w-[34px] h-[34px]
-                bg-[#F83EAD]
+                bg-[#1F4D3A]
                 text-white
                 rounded-full
                 flex items-center justify-center
@@ -188,7 +188,7 @@ function Nav() {
                 absolute -top-2 -right-2
                 min-w-[18px] h-[18px]
                 px-1
-                bg-[#F83EAD]
+                bg-[#1F4D3A]
                 text-white
                 text-[10px]
                 font-bold
@@ -239,8 +239,8 @@ function Nav() {
                     px-5 py-3
                     text-gray-700
                     cursor-pointer
-                    hover:bg-pink-50
-                    hover:text-[#F83EAD]
+                    hover:bg-[#E1F2D0]
+                    hover:text-[#1F4D3A]
                     transition
                   "
                   onClick={handleLogout}
@@ -254,8 +254,8 @@ function Nav() {
                   px-5 py-3
                   text-gray-700
                   cursor-pointer
-                  hover:bg-pink-50
-                  hover:text-[#F83EAD]
+                  hover:bg-[#E1F2D0]
+                  hover:text-[#1F4D3A]
                   transition
                 "
                 onClick={() => goTo("/order")}
@@ -268,8 +268,8 @@ function Nav() {
                   px-5 py-3
                   text-gray-700
                   cursor-pointer
-                  hover:bg-pink-50
-                  hover:text-[#F83EAD]
+                  hover:bg-[#E1F2D0]
+                  hover:text-[#1F4D3A]
                   transition
                 "
                 onClick={() => goTo("/about")}
@@ -401,14 +401,7 @@ function Nav() {
             <LuUser className="w-[25px] h-[25px]" />
           ) : (
             <div
-              className="
-                w-[27px] h-[27px]
-                bg-[#F83EAD]
-                text-white
-                rounded-full
-                flex items-center justify-center
-                font-semibold
-              "
+              className="w-[27px] h-[27px]  bg-[#F83EAD]  text-white  rounded-full  flex items-center justify-center  font-semibold  "
             >
               {userData?.name?.slice(0, 1).toUpperCase()}
             </div>

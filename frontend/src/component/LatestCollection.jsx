@@ -14,7 +14,7 @@ function LatestCollection() {
     <div>
       <div className='h-[8%] w-[100%] text-center md:mt-[50px]'>
         <Title text1={"LATEST"} text2={"COLLECTIONS"}/>
-        <p className='w-[100%] m-auto text-[13px] md:text-[20px] px-[10px] text-blue-100'>🌿 Step Into Wellness – Discover Our New Ayurvedic Collection! marathi</p>
+        <p className='w-[100%] m-auto text-[13px] md:text-[20px]  px-[10px] '>🌿 Step Into Wellness – Discover Our New Ayurvedic Collection! marathi</p>
       </div>
       <div className='w-[100%] h-[50%] mt-[30px] flex items-center justify-center flex-wrap gap-[50px]'>
         {

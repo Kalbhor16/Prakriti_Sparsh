@@ -42,7 +42,7 @@ function ProductDetail() {
     }
   }
   return (
-    <section className="min-h-screen bg-gradient-to-r from-[#FF57B9] via-[#FF8FD2] to-[#FFC9E8] py-24 px-4 sm:px-6 lg:px-8">
+    <section className="min-h-screen bg-gradient-to-b from-[#A2B88F] to-[#C5D4B9] py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto px-2 sm:px-4">
         <button
           onClick={() => navigate(-1)}
@@ -74,28 +74,28 @@ function ProductDetail() {
             </div>
           </div>
 
-          <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-10 text-white shadow-2xl">
+          <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-10 ">
             <div className="mb-6">
               <Title text1={product.name.split(' ')[0] || 'PRODUCT'} text2={product.name.split(' ').slice(1).join(' ') || 'DETAILS'} />
             </div>
-            <p className="text-sm uppercase tracking-[0.25em] text-[#bff1f9] mb-4">
+            <p className="text-sm uppercase tracking-[0.25em] font-semibold mb-4">
               {product.category} • {product.subCategory}
             </p>
-            <h1 className="text-4xl font-semibold text-white mb-4">{product.name}</h1>
-            <p className="text-3xl font-bold text-[#ffb6d8] mb-6">{currency} {product.price}</p>
-            <p className="leading-8 text-gray-200 mb-8">{product.description}</p>
+            <h1 className="text-4xl font-semibold mb-4">{product.name}</h1>
+            <p className="text-3xl font-bold mb-6">{currency} {product.price}</p>
+            <p className="leading-8 mb-8">{product.description}</p>
             <div className="grid gap-4">
               <button
                 onClick={() => addToCart(product, 1)}
-                className="w-full rounded-2xl bg-[#FF57B9] py-4 text-lg font-semibold text-white transition hover:bg-pink-600"
+                className="w-full rounded-2xl bg-[#541F1F] py-4 text-lg font-semibold text-white transition hover:bg-[#3D1717] cursor-pointer"
               >
                 Add to Cart
               </button>
-              <button onClick={handleBuyNow} className="w-full rounded-2xl border border-white/30 bg-white/10 py-4 text-lg font-semibold text-white transition hover:bg-white/20">
+              <button onClick={handleBuyNow} className="w-full rounded-2xl cursor-pointer border border-white/30 bg-[#AE6C6C] py-4 text-lg font-semibold text-white transition hover:bg-[#3D1717]">
                 Buy Now
               </button>
             </div>
-            <div className="mt-10 text-sm text-gray-300">
+            <div className="mt-10 text-sm">
               <p className="font-semibold mb-2">Delivery Info</p>
               <p>Fast shipping across India. Standard delivery fee applies.</p>
             </div>

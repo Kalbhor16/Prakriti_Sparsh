@@ -21,7 +21,6 @@ function PlaceOrder() {
   const [phone, setPhone] = useState('')
   const [paymentMethod, setPaymentMethod] = useState('COD')
   const [loading, setLoading] = useState(false)
-
   const subtotal = useMemo(() => cartItems.reduce((sum, it) => sum + (it.price || 0) * (it.quantity || 0), 0), [cartItems])
   const total = subtotal + (cartItems.length ? delivery_fee : 0)
 
@@ -204,8 +203,8 @@ function PlaceOrder() {
   }
 
   return (
-    <div className='min-h-screen mt-[60px] bg-gradient-to-r from-[#FF57B9] via-[#FF8FD2] to-[#FFC9E8] py-24 px-4'>
-      <div className='max-w-4xl mx-auto bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 text-white'>
+    <div className='min-h-screen mt-[60px]  bg-gradient-to-b from-[#ACC8A2] via-[#BBCCAD] to-[#DDE6D8] py-24 px-4'>
+      <div className='max-w-4xl mx-auto bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8'>
         <h2 className='text-2xl font-semibold mb-6'>Place Order</h2>
         <div className='grid md:grid-cols-2 gap-6'>
           <div>
@@ -227,14 +226,14 @@ function PlaceOrder() {
             <h3 className='font-semibold mb-3'>Order Summary</h3>
             <div className='bg-white/5 rounded-xl p-4'>
               <div className='flex flex-col gap-3 max-h-60 overflow-auto mb-4'>
-                {cartItems.length === 0 && <div className='text-sm text-gray-200'>Your cart is empty.</div>}
+                {cartItems.length === 0 && <div className='text-sm'>Your cart is empty.</div>}
                 {cartItems.map(item => (
                   <div key={item._id} className='flex items-center justify-between'>
                     <div className='flex items-center gap-3'>
                       <img src={item.image1} alt={item.name} className='w-16 h-16 object-contain rounded-lg bg-white p-1' />
                       <div>
                         <div className='font-semibold'>{item.name}</div>
-                        <div className='text-sm text-gray-200'>Qty: {item.quantity}</div>
+                        <div className='text-sm'>Qty: {item.quantity}</div>
                       </div>
                     </div>
                     <div className='font-semibold'>{currency} {item.price * item.quantity}</div>
@@ -249,7 +248,7 @@ function PlaceOrder() {
               <div className='mt-4'>
                 <h4 className='font-semibold mb-2'>Payment Method</h4>
                 <div className='flex gap-3 flex-wrap'>
-                  <button type='button' onClick={() => setPaymentMethod('COD')} className={`px-5 py-3 rounded-full border flex items-center gap-3 transition-all duration-200 transform ${paymentMethod === 'COD' ? 'bg-gradient-to-r from-[#ff9fcf] via-[#ff84b9] to-[#ff5b9f] text-black border-transparent shadow-2xl shadow-pink-500/20 scale-105' : 'bg-transparent border-white/30 text-white hover:bg-white/10 hover:border-white hover:text-white hover:shadow-xl hover:scale-[1.02]'}`}>
+                  <button type='button' onClick={() => setPaymentMethod('COD')} className={`px-5 py-3 rounded-full border flex items-center gap-3 transition-all duration-200 transform ${paymentMethod === 'COD' ? 'bg-gray-300  text-black border-transparent shadow-2xl shadow-pink-500/20 scale-105' : 'bg-transparent border-white/30 text-white hover:bg-white/10 hover:border-white hover:text-white hover:shadow-xl hover:scale-[1.02]'}`}>
                     Cash on Delivery
                   </button>
                   <button type='button' onClick={() => setPaymentMethod('Razorpay')} className={`w-40 h-14 rounded-full border flex items-center justify-center transition-all duration-200 transform ${paymentMethod === 'Razorpay' ? 'bg-[#ffffff] border-transparent shadow-2xl shadow-blue-400/25 scale-105' : 'bg-transparent border-white/30 hover:bg-white/15 hover:border-white hover:shadow-xl hover:scale-[1.02]'}`}>
@@ -258,7 +257,7 @@ function PlaceOrder() {
                 </div>
               </div>
             </div>
-            <button disabled={loading || cartItems.length === 0} onClick={handlePlaceOrder} className='w-full mt-4 py-3 rounded-2xl bg-[#FF57B9] font-semibold'>{loading ? 'Processing...' : paymentMethod === 'Razorpay' ? 'Pay with Razorpay' : 'Place Order'}</button>
+            <button disabled={loading || cartItems.length === 0} onClick={handlePlaceOrder} className='w-full mt-4 py-3 rounded-2xl bg-[#3D1717] text-white cursor-pointer font-semibold'>{loading ? 'Processing...' : paymentMethod === 'Razorpay' ? 'Pay with Razorpay' : 'Place Order'}</button>
           </div>
         </div>
       </div>

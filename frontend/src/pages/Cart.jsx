@@ -16,7 +16,7 @@ function Cart() {
   const total = subtotal + deliveryFee
 
   return (
-    <div className='min-h-screen mt-[60px] bg-[#fff5fb] px-4 md:px-8 py-24'>
+    <div className='min-h-screen mt-[60px] bg-gradient-to-b from-[#ACC8A2] via-[#BBCCAD] to-[#DDE6D8] px-4 md:px-8 py-24'>
       <div className='max-w-6xl mx-auto'>
         <h2 className='text-3xl font-semibold text-[#333] mb-6'>Your Cart</h2>
 
@@ -37,13 +37,13 @@ function Cart() {
 
                   <div className='flex-1'>
                     <h3 className='font-semibold text-lg text-[#333]'>{item.name}</h3>
-                    <p className='text-[#f83ead] mt-1'>Price: {currency} {item.price}</p>
+                    <p className=' mt-1'>Price: {currency} {item.price}</p>
 
                     <div className='flex items-center gap-3 mt-3'>
                       <span className='text-gray-700 font-semibold'>Qty: {item.quantity}</span>
                       <button
                         onClick={() => removeFromCart(item._id, 1)}
-                        className='px-3 py-1 rounded-full bg-[#f83ead] text-white text-sm'
+                        className='px-2 py-1 rounded-full bg-red-900  text-white text-sm'
                       >
                         Remove 1
                       </button>
@@ -79,7 +79,7 @@ function Cart() {
                 <span>Total</span>
                 <span>{currency} {total}</span>
               </div>
-              <button onClick={handleProceedToCheckout} disabled={cartItems.length === 0} className={`w-full mt-6 py-3 rounded-lg ${cartItems.length === 0 ? 'bg-gray-300 text-gray-600 cursor-not-allowed' : 'bg-[#f83ead] text-white'}`}>
+              <button onClick={handleProceedToCheckout} disabled={cartItems.length === 0} className={`w-full mt-6 py-3 rounded-lg ${cartItems.length === 0 ? 'bg-gray-300 text-gray-600 cursor-not-allowed' : 'bg-[#3D1717] text-white'}`}>
                 Proceed to Checkout
               </button>
             </div>

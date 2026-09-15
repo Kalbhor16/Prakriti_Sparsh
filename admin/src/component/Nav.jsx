@@ -14,7 +14,6 @@ function Nav() {
         serverUrl + '/api/auth/logout',
         { withCredentials: true }
       )
-
       console.log(result.data)
 
       getAdmin

@@ -3,7 +3,7 @@ import { FaCircle } from "react-icons/fa6";
 function Hero({ heroData, heroCount, setHeroCount }) {
   return (
     <div className='w-[40%] h-[100%] relative'>
-      <div className='absolute text-[#18d9ee] text-[20px] md:text-[40px] lg:text-[55px] md:left-[10%] md:top-[90px] lg:top-[130px] left-[10%] top-[10px]'>
+      <div className='absolute text-[#1A2517] text-[20px] font-bold md:text-[40px] lg:text-[55px] md:left-[10%] md:top-[90px] lg:top-[130px] left-[10%] top-[10px]'>
         <p>{heroData.text1}</p>
         <p>{heroData.text2}</p>
       </div>

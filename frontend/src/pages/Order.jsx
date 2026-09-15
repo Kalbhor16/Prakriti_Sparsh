@@ -52,7 +52,7 @@ function Order() {
           <div className="col-span-full text-center text-gray-300">No orders found.</div>
         ) : (
           orderData.map((item, idx) => (
-            <div key={idx} className="bg-[#ffffff0a] p-4 rounded-lg border border-gray-700 flex flex-col">
+            <div key={idx} className="bg-gradient-to-b from-[#ACC8A2] via-[#BBCCAD] to-[#D0E4C2] p-4 rounded-lg border border-gray-700 flex flex-col">
               <div className="flex items-center gap-4">
                 <img src={item.image1 || item.image || item.imageUrl || placeholderImage} alt={item.name} className="w-24 h-24 object-cover rounded bg-gray-900" />
                 <div className="flex-1">

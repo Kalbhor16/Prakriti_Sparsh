@@ -68,10 +68,7 @@ function Collection() {
       className="
         w-full
         min-h-screen
-        bg-gradient-to-br
-        from-[#fff5fb]
-        via-[#fff9fc]
-        to-[#ffeaf6]
+       bg-gradient-to-b from-[#ACC8A2] via-[#BBCCAD] to-[#D0E4C2] 
         pt-[80px]
         md:pt-[90px]
         pb-[90px]
@@ -317,22 +314,7 @@ function Collection() {
                 text-center
               "
             >
-              <div
-                className="
-                  w-16
-                  h-16
-                  rounded-full
-                  bg-pink-100
-                  flex
-                  items-center
-                  justify-center
-                  text-2xl
-                  mb-4
-                "
-              >
-                🌿
-              </div>
-
+              <div className=" w-16 h-16 rounded-full bg-pink-100 flex items-center justify-center text-2xl mb-4 " >🌿 </div>
               <h2 className="text-xl font-semibold text-gray-800">
                 No Products Found
               </h2>

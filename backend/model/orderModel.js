@@ -22,7 +22,7 @@ const orderSchema = new mongoose.Schema({
         required: true,
         default: "order placed", 
     },
-    paymentMethod: {
+    paymentMethod:{
         type: String,
         required: true, 
     },

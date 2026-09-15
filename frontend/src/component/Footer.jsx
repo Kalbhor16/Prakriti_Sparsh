@@ -3,7 +3,7 @@ import logo from "../assets/logo.png";
 
 function Footer() {
   return (
-    <footer className="w-full bg-[#FFC9E8] ">
+    <footer className="w-full bg-[#E8F0E3] ">
       <div className="max-w-7xl mx-auto px-5 md:px-12 py-8 md:py-10 flex flex-col md:flex-row justify-between gap-10">
 
         {/* Left Section */}
@@ -16,16 +16,16 @@ function Footer() {
             />
 
             <h2 className="text-2xl md:text-3xl font-semibold text-black">
-              PrakritiSparsh
+              PrakrutiSparsha
             </h2>
           </div>
 
           <p className="hidden md:block text-gray-700 text-base leading-7">
-            PrakritiSparsh is your trusted destination for authentic Ayurvedic and natural products, offering quality, convenience, and great value. Discover products inspired by nature, carefully selected to support a healthier and more balanced lifestyle. 🌿.
+            PrakrutiSparsha is your trusted destination for authentic Ayurvedic and natural products, offering quality, convenience, and great value. Discover products inspired by nature, carefully selected to support a healthier and more balanced lifestyle. 🌿.
           </p>
 
           <p className="md:hidden text-gray-700 text-sm">
-            Fast. Easy. Reliable. PrakritiSparsh Shopping.
+            Fast. Easy. Reliable. PrakrutiSparsha Shopping.
           </p>
         </div>
 
@@ -53,17 +53,12 @@ function Footer() {
 
           <ul className="space-y-2 text-gray-700">
             <li className="cursor-pointer hover:text-black transition">
-              +91-9699602526
+              +91-8637727545 / +91-9765135657
             </li>
             <li className="cursor-pointer hover:text-black transition">
-              contact@prakritisparsh.com
+              prakritisparsh999@gmail.com
             </li>
-            <li className="cursor-pointer hover:text-black transition">
-              +91-9699602526
-            </li>
-            <li className="cursor-pointer hover:text-black transition">
-              admin@prakritisparsh.com
-            </li>
+           
           </ul>
         </div>
 
@@ -71,8 +66,8 @@ function Footer() {
       </div>
 
       {/* Bottom */}
-      <div className="border-t border-pink-300 py-4 text-center text-sm text-gray-700">
-        © 2026 PrakritiSparsh. All Rights Reserved.
+      <div className="border-t border-black-300 py-4 text-center text-sm text-gray-700">
+        © 2026 PrakrutiSparsha. All Rights Reserved.
       </div>
     </footer>
   );

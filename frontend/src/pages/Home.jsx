@@ -42,7 +42,7 @@ function Home() {
 
   return (
     <main className="w-full overflow-x-hidden relative pt-[80px] md:pt-[90px]">
-      <section className="relative w-full min-h-[520px] sm:min-h-[550px] md:min-h-[600px] lg:min-h-[calc(100vh-90px)] overflow-hidden bg-gradient-to-r from-[#FF57B9] via-[#FF8FD2] to-[#FFC9E8]"
+      <section className="relative w-full min-h-[520px] sm:min-h-[550px] md:min-h-[600px] lg:min-h-[calc(100vh-90px)] overflow-hidden bg-[#ACC8A2]"
       >
         <div className="absolute inset-0">
           <Background heroCount={heroCount} />

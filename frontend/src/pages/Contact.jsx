@@ -11,17 +11,17 @@ const contactDetails = [
   {
     icon: FaMapMarkerAlt,
     label: "Address",
-    value: "Pune, Maharashtra, India",
+    value: "Prakruti sparsha office: Kodoli, Kolhapur,Maharashtra 416114",
   },
   {
     icon: FaPhoneAlt,
     label: "Phone",
-    value: "+91 9699602526",
+    value: "+91 8637727545 / +91 9765135657",
   },
   {
     icon: FaEnvelope,
     label: "Email",
-    value: "support@prakritisparsh.com",
+    value: "prakritisparsh999@gmail.com",
   },
   {
     icon: FaClock,
@@ -32,8 +32,8 @@ const contactDetails = [
 
 function Contact() {
   return (
-    <section className="relative w-full min-h-screen overflow-hidden bg-[#fdf7fb] py-24 px-4 sm:px-6 lg:px-8">
-      <div className="absolute inset-x-0 top-0 h-80 bg-gradient-to-br from-[#ffe9f4] via-[#ffd6eb] to-[#dbe9ff] opacity-90" />
+    <section className="relative w-full min-h-screen overflow-hidden bg-[#E8F0E3] py-24 px-4 sm:px-6 lg:px-8">
+      <div className="absolute inset-x-0 top-0 h-80 bg-gradient-to-b from-[#94C276] to-[#E6F0E1] opacity-90" />
       <div className="relative mx-auto max-w-7xl">
         <div className="text-center mb-16">
           <Title text1={"CONTACT"} text2={"US"} />
@@ -44,7 +44,7 @@ function Contact() {
 
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="rounded-[2rem] bg-white/95 p-8 shadow-[0_28px_80px_rgba(244,62,173,0.12)] ring-1 ring-white/80 backdrop-blur-xl">
-            <div className="mb-8 rounded-[1.75rem] bg-[#fff0f8] p-6 shadow-sm">
+            <div className="mb-8 rounded-[1.75rem] bg-[#E6F0E1] p-6 shadow-sm">
               <h2 className="text-3xl font-semibold text-slate-900">Get in Touch</h2>
               <p className="mt-3 max-w-xl text-sm text-slate-600">
                 Reach out for support, wholesale requests, or general inquiries. We are here to help you with everything you need.
@@ -57,7 +57,7 @@ function Contact() {
                 return (
                   <div key={item.label} className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
                     <div className="flex items-center gap-4">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#f83ead] to-[#ff8fd2] text-white shadow-lg">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-b from-[#406F3A] to-[#A2CF80] text-white shadow-lg">
                         <Icon className="text-xl" />
                       </div>
                       <div>
@@ -72,7 +72,7 @@ function Contact() {
           </div>
 
           <div className="rounded-[2rem] bg-slate-950/95 p-8 shadow-[0_28px_80px_rgba(15,23,42,0.24)] ring-1 ring-white/10 backdrop-blur-xl text-white">
-            <h2 className="text-3xl font-semibold text-[#ffd5ef] mb-6">Send a Message</h2>
+            <h2 className="text-3xl font-semibold text-[#94C276] mb-6">Send a Message</h2>
             <p className="mb-8 text-sm text-slate-300">
               Fill out the form and we'll respond within 24 hours.
             </p>
@@ -116,7 +116,7 @@ function Contact() {
 
               <button
                 type="submit"
-                className="inline-flex w-full items-center justify-center rounded-2xl bg-gradient-to-r from-[#f83ead] to-[#ff8fd2] px-6 py-4 text-base font-semibold text-white shadow-lg shadow-[#f83ead]/25 transition duration-300 hover:scale-[1.01]"
+                className="inline-flex w-full items-center justify-center rounded-2xl bg-gradient-to-r from-[#5C8B4E] to-[#94C276] px-6 py-4 text-base font-semibold text-white shadow-lg shadow-[#f83ead]/25 transition duration-300 hover:scale-[1.01]"
               >
                 Send Message
               </button>

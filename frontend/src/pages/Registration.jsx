@@ -45,18 +45,18 @@ function Registration() {
     }
   }
   return (
-    <div className='min-h-screen w-full bg-gradient-to-r from-[#FF57B9] via-[#FF8FD2] to-[#FFC9E8] text-white flex flex-col items-center justify-start'>
-      <div className='w-[100%] h-[80px] flex items-center justify-start px-[30px]'>
-        <img src={logo} alt="logo" className='w-[100px] h-[125px] mt-[20px]'/>
-        <h1 className='text-[27px] font-serif'>PrakritiSparsh</h1>
+    <div className='min-h-screen w-full bg-gradient-to-b from-[#ACC8A2] via-[#BBCCAD] to-[#D0E0D0] text-white flex flex-col items-center justify-start'>
+      <div className='w-[100%] h-[80px] flex items-center gap-[20px] justify-start px-[30px]'>
+        <img src={logo} alt="logo" className='w-[100px] h-[100px] mt-[20px]'/>
+        <h1 className='text-[27px] font-serif'><span className='text-[#1F4D3A]'>Prakruti</span>Sparsha</h1>
       </div>
       <div className='w-[100%] h-[100px] flex items-center justify-center flex-col gap-[10px]'>
         <span className='text-[25px] font-semibold'>Registration Page</span>
-        <span className='text-[16px]'>Welcome to PrakritiSparsh, Place your Order</span>
+        <span className='text-[16px]'>Welcome to PrakrutiSparsha, Place your Order</span>
       </div>
       <div className='max-w-[600px] w-[90%] h-[500px] bg-[#00000025] border-[1px] border-[#96969635] backdrop:blur-2xl rounded-lg shadow-lg flex  items-center justify-center'>
         <form className='w-[90%] h-[90%] flex flex-col items-center justify-start gap-[20px]' action="" onSubmit={handleSignup}>
-          <div className='w-[90%] h-[50px] bg-[#F83EAD] rounded-lg flex items-center justify-center gap-[10px] py-[20px] cursor-pointer' onClick={googleSignUp}>
+          <div className='w-[90%] h-[50px] bg-[#406F3A] rounded-lg flex items-center justify-center gap-[10px] py-[20px] cursor-pointer' onClick={googleSignUp}>
               <img className='w-[15px]' src={google} alt="" />Registration with Google
           </div>
           <div className='w-[100%] h-[20px] flex items-center justify-center gap-[10px]'>
@@ -73,7 +73,7 @@ function Registration() {
 
                {show &&<IoEye className='w-[20px] h-[20px] absolute cursor-pointer right-[5%] mt-[25px]' onClick={()=>setShow(prev=>!prev)}/>}
 
-               <button className='w-[100%] h-[50px] bg-[#F83EAD] rounded-lg'>Create Account</button>
+               <button className='w-[100%] h-[50px] bg-[#406F3A] rounded-lg'>Create Account</button>
 
                <p className='flex gap-[10px]'>You have any Account? <span onClick={()=>navigate("/login")} className='text-[#5555f6cf] cursor-pointer font-semibold'>Login</span></p>
           </div>
