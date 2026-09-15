@@ -15,3 +15,10 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm install
+      - name: Build Node Js App
+        run: npm run build
+      - name: Upload Build on Artifacts
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: Nodejs-Artifacts
+          path: out/
