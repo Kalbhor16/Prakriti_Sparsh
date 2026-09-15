@@ -15,5 +15,3 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm install
-      - name: Build Node js app
-        run: npm build
