@@ -11,8 +11,6 @@ dotenv.config();
 let port=process.env.PORT || 6000;
 let app=express()
 
-
-
 app.use(cors({
 origin:["https://prakriti-sparsh-frontendone-ke02.onrender.com","https://prakriti-sparsh-admin.onrender.com"],
 credentials:true 
