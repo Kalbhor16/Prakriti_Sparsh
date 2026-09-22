@@ -86,7 +86,7 @@ function Collection() {
             justify-center
             gap-2
             rounded-xl
-            bg-[#F83EAD]
+            bg-[#1F4D3A]
             text-white
             font-semibold
             shadow-md

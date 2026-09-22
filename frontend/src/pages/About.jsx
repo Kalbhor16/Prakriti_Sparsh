@@ -1,6 +1,8 @@
 import React from "react";
 import Title from "../component/Title";
 import about from "../assets/back6.png";
+import Co_founder from "../assets/co-founder.png";
+import founder from "../assets/founder.png";
 
 function About() {
   return (
@@ -38,6 +40,130 @@ function About() {
           </div>
 
         </div>
+
+<div className="w-full flex items-center justify-center flex-col gap-8 mt-20 mb-10">
+  <div className="w-full grid md:grid-cols-2 gap-6">
+    <div className="rounded-2xl border border-white/30 bg-[#ffffff10] p-8 backdrop-blur-sm shadow-xl">
+      <h3 className="text-2xl font-semibold text-[#214D39] mb-4">Vision</h3>
+      <p className="text-[15px] leading-7 text-[#2D4638]">
+        To build <span className="font-semibold">Prakruti Sparsha</span> into a trusted Indian
+        Ayurveda and herbal wellness brand that combines traditional Ayurvedic knowledge with
+        modern quality, responsible product development, professional branding, and convenient access.
+      </p>
+    </div>
+
+    <div className="rounded-2xl border border-white/30 bg-[#ffffff10] p-8 backdrop-blur-sm shadow-xl">
+      <h3 className="text-2xl font-semibold text-[#214D39] mb-4">Mission</h3>
+      <p className="text-[15px] leading-7 text-[#2D4638]">
+        To develop and market accessible, quality-focused Ayurvedic & herbal products while promoting
+        responsible wellness education and creating a scalable Indian brand capable of serving domestic
+        and international markets.
+      </p>
+    </div>
+  </div>
+
+  <Title text1={"MEET THE"} text2={"FOUNDERS"} />
+
+  <div className="w-full grid gap-10">
+    <div className="grid lg:grid-cols-[1.1fr_1.4fr] gap-10 items-center justify-center">
+      <div className="flex justify-center">
+        <div className="rounded-[2rem] border border-white/30 bg-[#ffffff15] p-3 shadow-2xl backdrop-blur-sm">
+          <img
+            src={Co_founder}
+            alt="Rushi Kalbhor"
+            className="h-[360px] w-full max-w-[420px] rounded-[1.5rem] object-cover"
+          />
+        </div>
+      </div>
+
+      <div className="w-full rounded-2xl border border-white/30 bg-[#ffffff10] p-8 backdrop-blur-sm shadow-xl">
+        <p className="inline-block rounded-full border border-[#2D5A3E] bg-[#EAF5E7] px-4 py-2 text-sm font-medium text-[#234A2E] mb-4">
+          Co-Founder & Business/Marketing Lead
+        </p>
+
+        <h3 className="text-3xl md:text-4xl font-bold text-[#1F3D2E] mb-4">
+          Rushi Kalbhor
+        </h3>
+
+        <p className="text-base md:text-lg leading-8 text-[#24412D] mb-6">
+          Rushi Kalbhor is a BAMS student and entrepreneur with a vision to build a modern,
+          trustworthy and accessible herbal wellness brand rooted in the principles of Ayurveda.
+        </p>
+
+        <p className="text-base md:text-lg leading-8 text-[#24412D] mb-6">
+          At Prakruti Sparsha, he focuses on business development, brand strategy, digital marketing,
+          product positioning, client relationships and online growth. His approach combines
+          traditional Ayurvedic knowledge with modern branding and consumer-focused marketing.
+        </p>
+
+        <div className="mt-8">
+          <h4 className="text-xl font-semibold text-[#214D39] mb-4">Focus Areas</h4>
+          <ul className="grid sm:grid-cols-2 gap-3 text-[15px] text-[#2D4638]">
+            <li className="rounded-lg bg-[#ffffff20] px-4 py-3 border border-[#CFE1CC]">Business Development</li>
+            <li className="rounded-lg bg-[#ffffff20] px-4 py-3 border border-[#CFE1CC]">Brand & Marketing Strategy</li>
+            <li className="rounded-lg bg-[#ffffff20] px-4 py-3 border border-[#CFE1CC]">Digital & Online Marketing</li>
+            <li className="rounded-lg bg-[#ffffff20] px-4 py-3 border border-[#CFE1CC]">Product Development & Positioning</li>
+            <li className="rounded-lg bg-[#ffffff20] px-4 py-3 border border-[#CFE1CC] sm:col-span-2">Client & Partner Relations</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div className="grid lg:grid-cols-[1.1fr_1.4fr] gap-10 items-center justify-center">
+      <div className="flex justify-center">
+        <div className="rounded-[2rem] border border-white/30 bg-[#ffffff15] p-3 shadow-2xl backdrop-blur-sm">
+          <img
+            src={founder}
+            alt="Founder"
+            className="h-[360px] w-full max-w-[420px] rounded-[1.5rem] object-cover"
+          />
+        </div>
+      </div>
+
+      <div className="w-full rounded-2xl border border-white/30 bg-[#ffffff10] p-8 backdrop-blur-sm shadow-xl">
+        <p className="inline-block rounded-full border border-[#2D5A3E] bg-[#EAF5E7] px-4 py-2 text-sm font-medium text-[#234A2E] mb-4">
+          Founder & Wellness Vision Lead
+        </p>
+
+        <h3 className="text-3xl md:text-4xl font-bold text-[#1F3D2E] mb-4">
+          Founder
+        </h3>
+
+        <p className="text-base md:text-lg leading-8 text-[#24412D] mb-6">
+          The founding team is driven by a shared belief that Ayurveda should be practical,
+          modern, and accessible for everyday life. Their focus is to build a brand that
+          respects traditional wisdom while delivering honest, trustworthy, and quality-driven
+          wellness products.
+        </p>
+
+        <p className="text-base md:text-lg leading-8 text-[#24412D] mb-6">
+          With deep attention to natural wellness, ethical sourcing, and customer trust, the
+          team works to create a long-term Ayurvedic brand that supports healthier lifestyles
+          and strengthens India’s presence in the herbal wellness space.
+        </p>
+
+        <div className="grid md:grid-cols-2 gap-6 mt-6">
+          <div className="rounded-xl bg-[#F4F8F1] p-5 border border-[#D7E8D2]">
+            <h4 className="text-xl font-semibold text-[#214D39] mb-2">Purpose</h4>
+            <p className="text-[15px] leading-7 text-[#2D4638]">
+              To bring together traditional herbal knowledge, responsible product design, and modern
+              customer experience in one trusted wellness brand.
+            </p>
+          </div>
+
+          <div className="rounded-xl bg-[#F4F8F1] p-5 border border-[#D7E8D2]">
+            <h4 className="text-xl font-semibold text-[#214D39] mb-2">Approach</h4>
+            <p className="text-[15px] leading-7 text-[#2D4638]">
+              Quality-first sourcing, educational wellness guidance, and a strong commitment to building
+              a modern and reliable Ayurveda-focused business.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div className="w-full flex items-center justify-center flex-col gap-8 mt-20 mb-10">
   <Title text1={"WHY"} text2={"CHOOSE US"} />
 

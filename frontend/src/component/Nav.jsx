@@ -104,10 +104,10 @@ function Nav() {
           </ul>
         </div>
 
-      
+
         <div className="flex items-center justify-end gap-4 min-w-[300px]">
 
-      
+
           <div className="relative w-[180px] lg:w-[230px]">
             <input
               type="text"
@@ -139,14 +139,14 @@ function Nav() {
             />
           </div>
 
-        
+
           {!userData ? (
             <LuUser
               className="
                 w-[27px] h-[27px]
                 text-gray-700
                 cursor-pointer
-                hover:text-[#F83EAD]
+                hover:text-[#1F4D3A]
                 transition
               "
               onClick={() => setShowProfile((prev) => !prev)}
@@ -178,7 +178,6 @@ function Nav() {
               className="
                 w-[29px] h-[29px]
                 text-gray-700
-                hover:text-[#F83EAD]
                 transition
               "
             />
@@ -296,7 +295,7 @@ function Nav() {
           />
 
           <h1 className="text-[19px] font-serif font-semibold text-gray-800">
-            Prakriti<span className="text-[#F83EAD]">Sparsh</span>
+            Prakriti<span className="text-[#1F4D3A]">Sparsh</span>
           </h1>
         </div>
 
@@ -317,7 +316,7 @@ function Nav() {
               className="
                 absolute -top-2 -right-2
                 min-w-[17px] h-[17px]
-                bg-[#F83EAD]
+                bg-[#1F4D3A]
                 text-white
                 text-[9px]
                 rounded-full
@@ -401,7 +400,7 @@ function Nav() {
             <LuUser className="w-[25px] h-[25px]" />
           ) : (
             <div
-              className="w-[27px] h-[27px]  bg-[#F83EAD]  text-white  rounded-full  flex items-center justify-center  font-semibold  "
+              className="w-[27px] h-[27px]  bg-[#1F4D3A]  text-white  rounded-full  flex items-center justify-center  font-semibold  "
             >
               {userData?.name?.slice(0, 1).toUpperCase()}
             </div>
