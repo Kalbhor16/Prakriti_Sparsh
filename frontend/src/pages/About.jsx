@@ -1,7 +1,7 @@
 import React from "react";
 import Title from "../component/Title";
 import about from "../assets/back6.png";
-import Co_founder from "../assets/co-founder.png";
+import co_founder from "../assets/Co-founder.png";
 import founder from "../assets/founder.png";
 
 function About() {
@@ -69,7 +69,7 @@ function About() {
       <div className="flex justify-center">
         <div className="rounded-[2rem] border border-white/30 bg-[#ffffff15] p-3 shadow-2xl backdrop-blur-sm">
           <img
-            src={Co_founder}
+            src={co_founder}
             alt="Rushi Kalbhor"
             className="h-[360px] w-full max-w-[420px] rounded-[1.5rem] object-cover"
           />
