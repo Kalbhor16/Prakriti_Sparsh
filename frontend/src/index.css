@@ -3,3 +3,26 @@
 @theme {
   --font-poppins: "Poppins", sans-serif;
 }
+
+@keyframes hero-image-in {
+  from {
+    opacity: 0.75;
+    transform: scale(1.015);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@theme {
+  --animate-hero-image-in: hero-image-in 650ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+  }
+}
