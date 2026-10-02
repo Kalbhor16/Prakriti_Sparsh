@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import back1 from "../assets/back1.png";
-import back2 from "../assets/back2.png";
-import back3 from "../assets/back3.png";
+import hero1 from "../assets/Hero1.png";
+import hero2 from "../assets/Hero2.png";
 
 const slides = [
-  { image: back1 },
-  { image: back2 },
-  { image: back3 },
+  { image: hero1},
+  { image: hero2}, 
+  { image: hero1 },
 ];
 
 function Hero() {
