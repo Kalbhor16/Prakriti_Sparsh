@@ -8,7 +8,7 @@ import Card from "../component/Card";
 function Collection() {
   const [showFilter, setShowFilter] = useState(false);
 
-  const { products, search } = useContext(shopDataContext);
+  const { products, search, isProductsLoading, productsError } = useContext(shopDataContext);
 
   const [filterProduct, setFilterProduct] = useState([]);
   const [category, setCategory] = useState([]);
@@ -273,7 +273,15 @@ function Collection() {
               {filterProduct.length} Products
             </div>
           </div>
-          {filterProduct.length > 0 ? (
+          {isProductsLoading ? (
+            <div role="status" className="min-h-[220px] flex items-center justify-center text-sm text-[#1F4D3A]">
+              Loading products...
+            </div>
+          ) : productsError ? (
+            <div role="alert" className="min-h-[220px] flex items-center justify-center text-center text-sm text-red-800">
+              {productsError}
+            </div>
+          ) : filterProduct.length > 0 ? (
             <div
               className="
                 grid

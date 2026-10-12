@@ -4,7 +4,7 @@ import { LuUser } from "react-icons/lu";
 import { FaOpencart } from "react-icons/fa6";
 import { userDataContext } from "../context/UserContext";
 import { BiSearchAlt } from "react-icons/bi";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { authDataContext } from "../context/AuthContext";
 import { FcHome, FcAbout } from "react-icons/fc";
@@ -12,26 +12,21 @@ import { RiHeartAddLine } from "react-icons/ri";
 import { shopDataContext } from "../context/ShopContext";
 
 function Nav() {
-  const { userData, getCurrentUser } = useContext(userDataContext);
+  const { userData, setUserData } = useContext(userDataContext);
   const { serverUrl } = useContext(authDataContext);
   const { search, setSearch, cartCount } = useContext(shopDataContext);
 
   const [showProfile, setShowProfile] = useState(false);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogout = async () => {
+    setUserData(null);
+    setShowProfile(false);
+    navigate("/", { replace: true });
     try {
-      const result = await axios.get(
-        serverUrl + "/api/auth/logout",
-        { withCredentials: true }
-      );
-
-      console.log(result.data);
-
-      await getCurrentUser();
-      setShowProfile(false);
-      navigate("/login");
+      await axios.get(`${serverUrl}/api/auth/logout`, { withCredentials: true });
     } catch (error) {
       console.log(error);
     }
@@ -40,6 +35,15 @@ function Nav() {
   const goTo = (path) => {
     setShowProfile(false);
     navigate(path);
+  };
+
+  const handleProfileClick = () => {
+    if (!userData) {
+      setShowProfile(false);
+      navigate("/login", { state: { from: location } });
+      return;
+    }
+    setShowProfile((prev) => !prev);
   };
 
   return (
@@ -149,7 +153,7 @@ function Nav() {
                 hover:text-[#1F4D3A]
                 transition
               "
-              onClick={() => setShowProfile((prev) => !prev)}
+              onClick={handleProfileClick}
             />
           ) : (
             <div
@@ -164,7 +168,7 @@ function Nav() {
                 hover:scale-105
                 transition
               "
-              onClick={() => setShowProfile((prev) => !prev)}
+              onClick={handleProfileClick}
             >
               {userData?.name?.slice(0, 1).toUpperCase()}
             </div>
@@ -215,22 +219,6 @@ function Nav() {
             "
           >
             <ul className="py-2">
-
-              {!userData && (
-                <li
-                  className="
-                    px-5 py-3
-                    text-gray-700
-                    cursor-pointer
-                    hover:bg-pink-50
-                    hover:text-[#F83EAD]
-                    transition
-                  "
-                  onClick={() => goTo("/login")}
-                >
-                  Login
-                </li>
-              )}
 
               {userData && (
                 <li
@@ -393,7 +381,7 @@ function Nav() {
             hover:text-[#F83EAD]
             transition
           "
-          onClick={() => setShowProfile((prev) => !prev)}
+          onClick={handleProfileClick}
         >
 
           {!userData ? (
@@ -410,6 +398,16 @@ function Nav() {
         </button>
 
       </div>
+
+      {showProfile && userData && (
+        <div className="md:hidden fixed bottom-[78px] right-3 z-[60] w-[210px] bg-white rounded-xl shadow-xl border border-gray-200 overflow-hidden">
+          <ul className="py-2">
+            <li className="px-5 py-3 text-gray-700 cursor-pointer hover:bg-[#E1F2D0] hover:text-[#1F4D3A] transition" onClick={() => goTo("/order")}>Orders</li>
+            <li className="px-5 py-3 text-gray-700 cursor-pointer hover:bg-[#E1F2D0] hover:text-[#1F4D3A] transition" onClick={() => goTo("/about")}>About</li>
+            <li className="px-5 py-3 text-gray-700 cursor-pointer hover:bg-[#E1F2D0] hover:text-[#1F4D3A] transition" onClick={handleLogout}>Logout</li>
+          </ul>
+        </div>
+      )}
 
     </div>
   );

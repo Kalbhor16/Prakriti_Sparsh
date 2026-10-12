@@ -1,25 +1,33 @@
-import React, { createContext, useContext, useEffect, useState } from 'react'
+import React, { createContext, useCallback, useContext, useEffect, useState } from 'react'
 import { authDataContext } from './AuthContext'
 import { userDataContext } from './UserContext'
 import axios from 'axios'
 export const shopDataContext = createContext()
 function ShopContext({ children }) {
   let [products, setProducts] = useState([])
+  let [isProductsLoading, setIsProductsLoading] = useState(true)
+  let [productsError, setProductsError] = useState(null)
   let [search, setSearch] = useState('')
   let [cartItems, setCartItems] = useState([])
   let { serverUrl } = useContext(authDataContext)
   let { userData } = useContext(userDataContext)
   let currency = '₹'
   let delivery_fee = 40;
-  const getProducts=async()=>{
-     try {
-        let result=await axios.get(serverUrl + "/api/product/list")
-        console.log(result.data)
-        setProducts(result.data)
-     } catch (error) {
-        console.log(error)
-     }
-  }
+  const getProducts = useCallback(async () => {
+    setIsProductsLoading(true)
+    setProductsError(null)
+    try {
+      const result = await axios.get(`${serverUrl}/api/product/list`)
+      if (!Array.isArray(result.data)) {
+        throw new Error('Invalid product list response')
+      }
+      setProducts(result.data)
+    } catch (error) {
+      setProductsError(error.response?.data?.message || 'Unable to load products. Please try again.')
+    } finally {
+      setIsProductsLoading(false)
+    }
+  }, [serverUrl])
 
   const getProductById = async (id) => {
     try {
@@ -92,7 +100,7 @@ function ShopContext({ children }) {
 
   useEffect(() => {
     getProducts()
-  }, [])
+  }, [getProducts])
 
   useEffect(() => {
     if (userData) {
@@ -104,6 +112,8 @@ function ShopContext({ children }) {
 
   let value = {
     products,
+    isProductsLoading,
+    productsError,
     serverUrl,
     currency,
     delivery_fee,

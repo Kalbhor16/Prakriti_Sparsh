@@ -15,41 +15,43 @@ import Cart from './pages/Cart'
 import PlaceOrder from './pages/PlaceOrder'
 import Order from './pages/Order'
 
+function ProtectedRoute({ children }) {
+  const { userData, isLoading } = useContext(userDataContext)
+  const location = useLocation()
+
+  if (isLoading) {
+    return <div className="min-h-screen pt-[110px] text-center text-[#1F4D3A]">Restoring your session...</div>
+  }
+  return userData ? children : <Navigate to="/login" state={{ from: location }} replace />
+}
+
 function App() {
-  let { userData } = useContext(userDataContext)
-  let location = useLocation()
+  const { userData, isLoading } = useContext(userDataContext)
+  const location = useLocation()
+  const isAuthPage = location.pathname === '/login' || location.pathname === '/signup'
+
   return (
     <>
-      {userData && <Nav />}
+      {!isAuthPage && <Nav />}
       <Routes>
-
         <Route
           path="/login"
-          element={
-            userData ? (
-              <Navigate to={location.state?.from || "/"} />
-            ) : (
-              <Login />
-            )
-          } />
+          element={isLoading ? <div className="min-h-screen pt-[110px] text-center text-[#1F4D3A]">Restoring your session...</div> : userData ? <Navigate to="/" replace /> : <Login />}
+        />
         <Route
           path="/signup"
-          element={
-            userData ? (
-              <Navigate to={location.state?.from || "/"}
-              />) : (
-              <Registration />
-            )} />
-        <Route path='/' element={userData ? <Home /> : <Navigate to="/login" state={{ from: location.pathname }} />} />
-        <Route path='/about' element={userData ? <About /> : <Navigate to="/login" state={{ from: location.pathname }} />} />
-        <Route path='/collection' element={userData ? <Collection /> : <Navigate to="/login" state={{ from: location.pathname }} />} />
-        <Route path='/product' element={userData ? <Product /> : <Navigate to="/login" state={{ from: location.pathname }} />} />
-        <Route path='/product/:id' element={userData ? <ProductDetail /> : <Navigate to="/login" state={{ from: location.pathname }} />} />
-        <Route path='/contact' element={userData ? <Contact /> : <Navigate to="/login" state={{ from: location.pathname }} />} />
-        <Route path='/cart' element={userData ? <Cart /> : <Navigate to="/login" state={{ from: location.pathname }} />} />
-        <Route path='/placeorder' element={userData ? <PlaceOrder /> : <Navigate to="/login" state={{ from: location.pathname }} />} />
-        <Route path='/order' element={userData ? <Order /> : <Navigate to="/login" state={{ from: location.pathname }} />} />
-         
+          element={isLoading ? <div className="min-h-screen pt-[110px] text-center text-[#1F4D3A]">Restoring your session...</div> : userData ? <Navigate to="/" replace /> : <Registration />}
+        />
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/collection" element={<Collection />} />
+        <Route path="/product" element={<Product />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
+        <Route path="/placeorder" element={<ProtectedRoute><PlaceOrder /></ProtectedRoute>} />
+        <Route path="/order" element={<ProtectedRoute><Order /></ProtectedRoute>} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <Ai />
     </>

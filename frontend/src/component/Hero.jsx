@@ -3,11 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import hero1 from "../assets/Hero1.png";
 import hero2 from "../assets/Hero2.png";
+import hero4 from "../assets/Hero4.png";
 
 const slides = [
   { image: hero1},
   { image: hero2}, 
-  { image: hero1 },
+  { image: hero4 },
 ];
 
 function Hero() {

@@ -17,30 +17,37 @@ function Login() {
   let { getCurrentUser } = useContext(userDataContext)
   let [email, setemail] = useState("")
   let [password, setPassword] = useState("")
-
+  let [errorMessage, setErrorMessage] = useState("")
+  let [isSubmitting, setIsSubmitting] = useState(false)
   const handleLogin = async (e) => {
     e.preventDefault()
+    setErrorMessage("")
+    setIsSubmitting(true)
     try {
-      const result = await axios.post(`${serverUrl}/api/auth/login`, { email, password }, { withCredentials: true })
-      console.log(result.data)
-      getCurrentUser()
-      navigate("/")
-    } catch (error){
-      console.log(error)
+      await axios.post(`${serverUrl}/api/auth/login`, { email, password }, { withCredentials: true })
+      await getCurrentUser()
+      navigate("/", { replace: true })
+    } catch (error) {
+      setErrorMessage(error.response?.data?.message || "Unable to log in. Please try again.")
+    } finally {
+      setIsSubmitting(false)
     }
   }
   const googlelogin = async () => {
+    setErrorMessage("")
+    setIsSubmitting(true)
     try {
       const response = await signInWithPopup(auth, provider)
       let user = response.user
       let name = user.displayName
       let email = user.email
-      const result = await axios.post(`${serverUrl}/api/auth/googleLogin`, { name, email }, { withCredentials: true })
-      console.log(result.data)
-      getCurrentUser()
-      navigate("/")
+      await axios.post(`${serverUrl}/api/auth/googlelogin`, { name, email }, { withCredentials: true })
+      await getCurrentUser()
+      navigate("/", { replace: true })
     } catch (error) {
-      console.log(error)
+      setErrorMessage(error.response?.data?.message || error.message || "Unable to sign in with Google. Please try again.")
+    } finally {
+      setIsSubmitting(false)
     }
   }
   let navigate = useNavigate()
@@ -56,7 +63,7 @@ function Login() {
       </div>
       <div className='max-w-[600px] w-[90%] h-[500px] bg-[#00000025] border-[1px] border-[#96969635] backdrop:blur-2xl rounded-lg shadow-lg flex  items-center justify-center'>
         <form className='w-[90%] h-[90%] flex flex-col items-center justify-start gap-[20px]' action="" onSubmit={handleLogin}>
-          <div className='w-[90%] h-[50px] bg-[#406F3A] rounded-lg flex items-center justify-center gap-[10px] py-[20px] cursor-pointer' onClick={googlelogin}>
+          <div className='w-[90%] h-[50px] bg-[#406F3A] rounded-lg flex items-center justify-center gap-[10px] py-[20px] cursor-pointer' onClick={isSubmitting ? undefined : googlelogin}>
             <img className='w-[15px]' src={google} alt="" />Login account with Google
           </div>
           <div className='w-[100%] h-[20px] flex items-center justify-center gap-[10px]'>
@@ -67,7 +74,8 @@ function Login() {
             <input type={show ? "text" : "password"} className='w-[100%] h-[50px] border-[2px] border-[#96969635] backdrop:blur-sm rounded-lg shadow-lg bg-transparent placeholder-[#ffffffc7] px-[20px] font-semibold' placeholder='Password' required onChange={(e) => setPassword(e.target.value)} value={password} />
             {!show && <IoEyeOutline className='w-[20px] h-[20px] absolute cursor-pointer right-[5%]  mb-[35px]' onClick={() => setShow(prev => !prev)} />}
             {show && <IoEye className='w-[20px] h-[20px] absolute cursor-pointer right-[5%] mb-[35px]' onClick={() => setShow(prev => !prev)} />}
-            <button className='w-[100%] h-[50px] bg-[#406F3A] rounded-lg'>Login</button>
+            {errorMessage && <p role="alert" className="text-sm text-red-100">{errorMessage}</p>}
+            <button disabled={isSubmitting} className='w-[100%] h-[50px] bg-[#406F3A] rounded-lg disabled:opacity-60'>{isSubmitting ? "Please wait..." : "Login"}</button>
             <p className='flex gap-[10px]'>You have't any Account? <span onClick={() => navigate("/signup")} className='text-[#5555f6cf] cursor-pointer font-semibold'>Create New Account</span></p>
           </div>
         </form>

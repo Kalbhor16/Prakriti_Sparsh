@@ -17,31 +17,39 @@ function Registration() {
   let[name,setName]=useState("")
   let[email,setEmail]=useState("")
   let[password,setPassword]=useState("")
+  let[errorMessage,setErrorMessage]=useState("")
+  let[isSubmitting,setIsSubmitting]=useState(false)
   let navigate=useNavigate()
   const handleSignup=async(e)=>{
     e.preventDefault()
-    try {                                                                                                                        
-      const result=await axios.post(`${serverUrl}/api/auth/registration`,{name,email,password},{withCredentials:true})
-      console.log(result.data)
-      getCurrentUser()
-      navigate("/")
+    setErrorMessage("")
+    setIsSubmitting(true)
+    try {
+      await axios.post(`${serverUrl}/api/auth/registration`,{name,email,password},{withCredentials:true})
+      await getCurrentUser()
+      navigate("/", { replace: true })
     } catch (error) {
-      console.log(error)
+      setErrorMessage(error.response?.data?.message || "Unable to create your account. Please try again.")
+    } finally {
+      setIsSubmitting(false)
     }
   }
   const googleSignUp=async()=>{
+    setErrorMessage("")
+    setIsSubmitting(true)
     try {
       const response=await signInWithPopup(auth,provider)
       // console.log(response)
       let user=response.user
       let name=user.displayName;
       let email=user.email;
-      const result=await axios.post(`${serverUrl}/api/auth/googleLogin`,{name,email},{withCredentials:true})
-      console.log(result.data)
-      getCurrentUser()
-      navigate("/")
+      await axios.post(`${serverUrl}/api/auth/googlelogin`,{name,email},{withCredentials:true})
+      await getCurrentUser()
+      navigate("/", { replace: true })
     } catch (error) {
-      console.log(error)
+      setErrorMessage(error.response?.data?.message || error.message || "Unable to sign up with Google. Please try again.")
+    } finally {
+      setIsSubmitting(false)
     }
   }
   return (
@@ -56,7 +64,7 @@ function Registration() {
       </div>
       <div className='max-w-[600px] w-[90%] h-[500px] bg-[#00000025] border-[1px] border-[#96969635] backdrop:blur-2xl rounded-lg shadow-lg flex  items-center justify-center'>
         <form className='w-[90%] h-[90%] flex flex-col items-center justify-start gap-[20px]' action="" onSubmit={handleSignup}>
-          <div className='w-[90%] h-[50px] bg-[#406F3A] rounded-lg flex items-center justify-center gap-[10px] py-[20px] cursor-pointer' onClick={googleSignUp}>
+          <div className='w-[90%] h-[50px] bg-[#406F3A] rounded-lg flex items-center justify-center gap-[10px] py-[20px] cursor-pointer' onClick={isSubmitting ? undefined : googleSignUp}>
               <img className='w-[15px]' src={google} alt="" />Registration with Google
           </div>
           <div className='w-[100%] h-[20px] flex items-center justify-center gap-[10px]'>
@@ -73,7 +81,8 @@ function Registration() {
 
                {show &&<IoEye className='w-[20px] h-[20px] absolute cursor-pointer right-[5%] mt-[25px]' onClick={()=>setShow(prev=>!prev)}/>}
 
-               <button className='w-[100%] h-[50px] bg-[#406F3A] rounded-lg'>Create Account</button>
+               {errorMessage && <p role="alert" className="text-sm text-red-100">{errorMessage}</p>}
+               <button disabled={isSubmitting} className='w-[100%] h-[50px] bg-[#406F3A] rounded-lg disabled:opacity-60'>{isSubmitting ? "Please wait..." : "Create Account"}</button>
 
                <p className='flex gap-[10px]'>You have any Account? <span onClick={()=>navigate("/login")} className='text-[#5555f6cf] cursor-pointer font-semibold'>Login</span></p>
           </div>

@@ -8,11 +8,11 @@ import userRoutes from "./routes/userRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
 dotenv.config();
-let port=process.env.PORT || 6000;
+let port=process.env.PORT || 8000;
 let app=express()
 
 app.use(cors({
-origin:["http://localhost:5173","https://prakriti-sparsh-frontendone-ke02.onrender.com","https://prakriti-sparsh-admin.onrender.com"],
+origin:["http://localhost:5173","http://localhost:5174","https://prakriti-sparsh-frontendone-ke02.onrender.com","https://prakriti-sparsh-admin.onrender.com"],
 credentials:true 
 }))
 app.use(express.json())
